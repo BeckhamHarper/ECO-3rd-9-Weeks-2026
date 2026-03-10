@@ -59,24 +59,37 @@ def mining(inventory, gem_inventory):
     # Write your translated Python code below this line!
     pass
 
-print("You head down to the mines...")
-if inventoryPick == "basic":
-    start_percent = 30
-elif inventoryPick == "good":
-    start_percent = 50
-elif inventoryPick == "better":
-    start_percent = 70
-else: 
-    start_percent = 90
+    print("You head down to the mines...")
+    if inventory["pick"] == "basic":
+        start_percent = 30
+    elif inventory["pick"] == "good":
+        start_percent = 50
+    elif inventory["pick"] == "better":
+        start_percent = 70
+    else: 
+        start_percent = 90
 
-print("You swing your pick at the rock...")
-chance = start_percent
-keepSwinging = "y"
+    print("You swing your pick at the rock...")
+    chance = start_percent
+    keepSwinging = "y"
 
-while keepSwinging != "y" and keepSwinging != "Y":
-    print("Swing? Y/N")
-    keepSwinging = input()
+    while keepSwinging != "y" or keepSwinging != "Y":
+        print("Swing? Y/N")
+        keepSwinging = input()
 
-    if (keepSwinging = "y" OR keepSwinging = "Y"):
-        print("You reveal a little more gemstone...")
-        chance = chance + 5
+        if keepSwinging == "y" or keepSwinging == "Y":
+            print("You reveal a little more gemstone...")
+            chance = chance + 5
+
+        else:
+            roll = random.randint(1, 100)
+            if roll <= chance:
+                gem_name = gemstones[random(1, len(gemstones))]
+                gem_rarity = rarity[random(1, len(rarity))]
+                print("You carefully uncover a " + gem_name + "!")
+                newGem = [gem_name, 0, gem_rarity]
+                gem_inventory.append(newGem)
+            else:
+                print("Unlucky! Your wild swings crack the gem. You'll have to return and try again.")
+                
+             #   // Append as a list: [Name, Value, Rarity]
