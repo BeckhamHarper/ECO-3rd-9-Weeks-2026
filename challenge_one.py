@@ -58,3 +58,25 @@ def mining(inventory, gem_inventory):
     
     # Write your translated Python code below this line!
     pass
+
+print("You head down to the mines...")
+if inventoryPick == "basic":
+    start_percent = 30
+elif inventoryPick == "good":
+    start_percent = 50
+elif inventoryPick == "better":
+    start_percent = 70
+else: 
+    start_percent = 90
+
+print("You swing your pick at the rock...")
+chance = start_percent
+keepSwinging = "y"
+
+while keepSwinging != "y" and keepSwinging != "Y":
+    print("Swing? Y/N")
+    keepSwinging = input()
+
+    if (keepSwinging = "y" OR keepSwinging = "Y"):
+        print("You reveal a little more gemstone...")
+        chance = chance + 5
