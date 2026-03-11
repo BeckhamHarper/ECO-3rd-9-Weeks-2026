@@ -73,7 +73,7 @@ def mining(inventory, gem_inventory):
     chance = start_percent
     keepSwinging = "y"
 
-    while keepSwinging != "y" or keepSwinging != "Y":
+    while keepSwinging != "y" and keepSwinging != "Y":
         print("Swing? Y/N")
         keepSwinging = input()
 

@@ -57,3 +57,9 @@ PROCEDURE shop_buy(inventoryMoney, inventoryPick, stockList) {
 def shop_buy(stock, inventory):
     # Write your translated Python code below this line!
     pass
+    keepShopping = "y"
+    while keepShopping != "y" and keepShopping != "Y":
+        print("--- Items for sale ---")
+        i = 1
+        for item in range(stockList):
+            print(1)
