@@ -58,8 +58,8 @@ def shop_buy(stock, inventory):
     # Write your translated Python code below this line!
     pass
     keepShopping = "y"
-    while keepShopping != "y" and keepShopping != "Y":
+    while keepShopping != "y" or keepShopping != "Y":
         print("--- Items for sale ---")
         i = 1
-        for item in range(stockList):
-            print(1)
+        for item in range(stocklist):
+            print(i +"." + item[1] + "- $" + item[2])

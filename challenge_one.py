@@ -57,7 +57,6 @@ def mining(inventory, gem_inventory):
     rarity = ["common", "uncommon", "rare", "unique", "fake"]
     
     # Write your translated Python code below this line!
-    pass
 
     print("You head down to the mines...")
     if inventory["pick"] == "basic":
@@ -73,7 +72,7 @@ def mining(inventory, gem_inventory):
     chance = start_percent
     keepSwinging = "y"
 
-    while keepSwinging != "y" and keepSwinging != "Y":
+    while keepSwinging == "y" or keepSwinging == "Y":
         print("Swing? Y/N")
         keepSwinging = input()
 
