@@ -61,23 +61,23 @@ def shop_buy(stock, inventory):
     while keepShopping != "y" or keepShopping != "Y":
         print("--- Items for sale ---")
         i = 1
-        for item in range(stock):
-            print(i +"." + item[1] + "- $" + item[2])
+        for item in range(len(stock)):
+            print(i ,".", stock[item][0] , "- $", stock[item][1])
             i = i+1
         print("Enter the number of the item you want to buy:")
-        choice = input()
+        choice = int(input())
         if choice >= 1 and choice <= len(stock):
-            selectedItem = stockList[choice]
-            itemName = selectedItem[1]
-            itemPrice = selectedItem[2]
+            selectedItem = stock[choice]
+            itemName = selectedItem[0]
+            itemPrice = selectedItem[1]
             
-            if inventoryMoney >= itemPrice:
-                inventoryMoney = inventoryMoney - itemPrice
-                if substring(itemName, 10, 3 ) == "Enh":
+            if inventory['money'] >= itemPrice:
+                inventory['money'] = inventory['money'] - itemPrice
+                if (itemName, 10, 3 ) == "Enh":
                     inventory['pick'] = "good"
-                elif substring(itemName, 10, 3) == "Gre":
+                elif (itemName, 10, 3) == "Gre":
                     inventory['pick'] = "better"
-                elif substring(itemName, 10, 3) == "Sup":
+                elif (itemName, 10, 3) == "Sup":
                     inventory['pick'] = "best"
                 stock.pop(choice)
                 print("you bought the " + itemName +"!")
