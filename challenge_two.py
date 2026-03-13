@@ -58,7 +58,7 @@ def shop_buy(stock, inventory):
     # Write your translated Python code below this line!
     pass
     keepShopping = "y"
-    while keepShopping != "y" or keepShopping != "Y":
+    while keepShopping == "y" or keepShopping == "Y":
         print("--- Items for sale ---")
         i = 1
         for item in range(len(stock)):
@@ -67,7 +67,7 @@ def shop_buy(stock, inventory):
         print("Enter the number of the item you want to buy:")
         choice = int(input())
         if choice >= 1 and choice <= len(stock):
-            selectedItem = stock[choice]
+            selectedItem = stock[choice-1]
             itemName = selectedItem[0]
             itemPrice = selectedItem[1]
             
@@ -75,14 +75,16 @@ def shop_buy(stock, inventory):
                 inventory['money'] = inventory['money'] - itemPrice
                 if (itemName, 10, 3 ) == "Enh":
                     inventory['pick'] = "good"
+                    print(2)
                 elif (itemName, 10, 3) == "Gre":
                     inventory['pick'] = "better"
+                    print(2)
                 elif (itemName, 10, 3) == "Sup":
                     inventory['pick'] = "best"
                 stock.pop(choice)
                 print("you bought the " + itemName +"!")
-        else:
-            print("You can't afford that!")
+            else:
+                print("You can't afford that!")
         print("Keep shopping? Y/N")
         keepShopping = input()
-    return inventory['Money']
+    return inventory['money']

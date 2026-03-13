@@ -106,7 +106,7 @@ def shop_sell(inventory, gem_inventory):
         print("You don't have that gem! Stop wasting my time!")
         return inventory['money']
         
-    selectedGem = gem_inventory[choice]
+    selectedGem = gem_inventory[choice-1]
     gemName = selectedGem[0]
     gemValue = selectedGem[1]
     gemRarity = selectedGem[2]
@@ -132,22 +132,15 @@ def shop_sell(inventory, gem_inventory):
             
         selectedGem[1] = gemValue
         selectedGem[2] = gemRarity
-        gem_inventory[choice] = selectedGem
+        gem_inventory[choice-1] = selectedGem
     if gemRarity != "appraised_fake":
-        print("Ah yes. I'd be willing to offer you $" + str(gemValue) + " for that.")
-        print("Interested? Y/N")
-        accept = input()
-
-
-
-    if (gemRarity != "appraised_fake"):
         print("Ah yes. I'd be willing to offer you $" + str(gemValue) + " for that.")
         print("Interested? Y/N")
         accept = input()
         
         if (accept == "y" or accept == "Y"):
             inventory['money'] = inventory['money'] + gemValue
-            gem_inventory.pop(choice)
+            gem_inventory.pop(choice-1)
             print("Transaction complete!")
         else: 
             print("Now look here, I ain't in the business of buying fakes.")
