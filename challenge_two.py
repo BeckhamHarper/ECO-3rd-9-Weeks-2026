@@ -75,10 +75,8 @@ def shop_buy(stock, inventory):
                 inventory['money'] = inventory['money'] - itemPrice
                 if (itemName, 10, 3 ) == "Enh":
                     inventory['pick'] = "good"
-                    print(2)
                 elif (itemName, 10, 3) == "Gre":
                     inventory['pick'] = "better"
-                    print(2)
                 elif (itemName, 10, 3) == "Sup":
                     inventory['pick'] = "best"
                 stock.pop(choice)
